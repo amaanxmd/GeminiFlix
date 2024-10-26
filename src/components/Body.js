@@ -29,22 +29,22 @@ const Body =()=>{
 
     ])
 
-    useEffect(()=>{onAuthStateChanged(auth, (user) => {
-        if (user) {
+    // useEffect(()=>{onAuthStateChanged(auth, (user) => {
+    //     if (user) {
           
-          const uid = user.uid;
-          dispatch(adduser(uid))
-          console.log(user)
+    //       const uid = user.uid;
+    //       dispatch(adduser(uid))
+    //       console.log(user)
          
 
 
           
-        } else {
+    //     } else {
           
-          dispatch(removeuser())
+    //       dispatch(removeuser())
           
-        }
-      });},[])
+    //     }
+    //   });},[])
 
 return (<RouterProvider router={approuter}/>)
 

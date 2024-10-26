@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,sendSignInLinkToEmail} from "firebase/auth";
+import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,sendSignInLinkToEmail,signOut} from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -59,6 +59,16 @@ signInWithEmailAndPassword(auth, email.current.value, password.current.value)
     seterror({errorMessage})
   });
   }
+
+
+ 
+export function signOutfromAccount(navigate){
+  signOut(auth).then(() => {
+  // Sign-out successful.
+  navigate("/")
+}).catch((error) => {
+  // An error happened.
+});}
 
   const actionCodeSettings = {
     // URL you want to redirect back to. The domain (www.example.com) for this

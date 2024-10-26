@@ -20,24 +20,24 @@ const Browse =()=>{
     const toggle = useSelector((store)=>store.gptReducer.toggle)
     const dispatch = useDispatch()
     
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     
     useEffect(()=>{
-        // onAuthStateChanged(auth, (user) => {
-    //     if (user) {
+        onAuthStateChanged(auth, (user) => {
+        if (user) {
           
-    //       const uid = user.uid;
+          const uid = user.uid;
           
         
 
 
           
-    //     } else {
+        } else {
           
-    //       navigate("/")
+          navigate("/")
           
-    //     }
-    //   });
+        }
+      });
     
      
     },[])
