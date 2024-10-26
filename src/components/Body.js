@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createHashRouter, RouterProvider } from "react-router-dom"
 import Browse from "./Browse"
 import LoginPage from "./LoginPage"
 import { onAuthStateChanged } from "firebase/auth"
@@ -13,7 +13,7 @@ const Body =()=>{
     const dispatch = useDispatch()
    
 
-    const approuter = createBrowserRouter([
+    const approuter = createHashRouter([
 
      {path:"/",
       element:<LoginPage/>

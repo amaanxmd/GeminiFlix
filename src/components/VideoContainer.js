@@ -27,7 +27,7 @@ export const VideoContainer  = ({movie})=>{
        <div className="bg-black/50 w-full h-full absolute">
 
        </div>
-        {/* { video &&<iframe className="w-full h-full "  src={"https://www.youtube.com/embed/"+video[0].key+"?&autoplay=1&mute=1&loop=1&&playlist="+video[0].key} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>} */}
+        { video &&<iframe className="w-full h-full "  src={"https://www.youtube.com/embed/"+video[0].key+"?&autoplay=1&mute=1&loop=1&&playlist="+video[0].key} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>}
         {video && <div className="w-full h-full"></div>}
         </div>
 </div>)

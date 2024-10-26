@@ -4,7 +4,6 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useGetNowPlayingMovies } from "../customHooks/useGetNowPlayingMovies";
 import {useDispatch, useSelector} from 'react-redux'
-import { VideoContainer } from "./VideoContainer";
 import { BrowseHeader } from "./BrowseHeader";
 import { SecondaryContainer } from "./SecondaryContainer";
 import GptSearch from "./GptSearch";

@@ -65,7 +65,7 @@ signInWithEmailAndPassword(auth, email.current.value, password.current.value)
 export function signOutfromAccount(navigate){
   signOut(auth).then(() => {
   // Sign-out successful.
-  navigate("/")
+  navigate("/browse")
 }).catch((error) => {
   // An error happened.
 });}
