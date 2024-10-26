@@ -2,10 +2,10 @@ import { useEffect } from "react"
 import { options } from "../utils/constant"
 import { useDispatch } from "react-redux"
 import { addVideos } from "../utils/movieslice"
-import { useSelector } from "react-redux"
+// import { useSelector } from "react-redux"
 
 export const useGetVideos = (movieid)=>{
-    const videos= useSelector((store)=>store.movieReducer.videos)
+    // const videos= useSelector((store)=>store.movieReducer.videos)
     const dispatch = useDispatch()
 
     async function getVideos(){
@@ -15,5 +15,5 @@ export const useGetVideos = (movieid)=>{
        dispatch (addVideos(finaldata.results))
     }
 
-    useEffect(()=>{!videos&&getVideos()},[movieid])
+    useEffect(()=>{getVideos()},[movieid])
 }
