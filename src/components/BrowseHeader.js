@@ -13,17 +13,22 @@ const toggleflag = useSelector((store)=>store.gptReducer.toggle)
 const [navbarColor, setNavbarColor] = useState('bg-gradient-to-b from-black/80'); // Initial color
 const [scrollTimeout, setScrollTimeout] = useState(null);
 const dispatch = useDispatch()
+
+
 const handleScroll = () => {
-    // if (scrollTimeout) {
-    //     clearTimeout(scrollTimeout);
-    //   }
+    if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+        // console.log(scrollTimeout+"from inside function")
+      }
     const scrollY = window.scrollY; // Get the vertical scroll position
     if (scrollY ) {
       setNavbarColor('bg-neutral-800'); // Color after scrolling (dark color)
     } 
-   const timeout = setTimeout(()=>{setNavbarColor('bg-gradient-to-b from-black/80')},500)
+   const timeout = setTimeout(()=>{setNavbarColor('bg-gradient-to-b from-black/80')},2000)
+  //  console.log(timeout)
    setScrollTimeout(timeout)
   };
+
 useEffect(() => {
     window.addEventListener('scroll', handleScroll);
 
@@ -35,13 +40,16 @@ useEffect(() => {
       }
     };
   }, [scrollTimeout]);
+
+
+
   useEffect(()=>{
     onAuthStateChanged(auth, (user) => {
     if (user) {
       
       const uid = user.uid;
       
-    console.log(user)
+    // console.log(user)
 
 
       
@@ -65,10 +73,11 @@ signOutfromAccount(navigate)
   
 }
 
-    return (<div className={`fixed ${navbarColor} w-full px-12 py-2 z-20 flex justify-between items-center transition-colors ease-in-out duration-300`}>
-       <Logo className={"h-12 w-24 "}/>
-       {!toggleflag && <button className="text-white ml-auto mr-4 bg-red-600 rounded p-1 hover:bg-red-600/80" onClick={toggle} >Gpt-Search</button>}
-       <button className="text-white p-1 bg-red-600 rounded-md hover:bg-red-600/80" onClick={handleClick}>Signout</button>
+    return (<div className={`fixed ${navbarColor} w-full sm:px-12 px-6 py-2  z-20 flex justify-between items-center transition-colors ease-in-out duration-300`}>
+       <Logo className={"h-12 w-24  "}/>
+       {!toggleflag && <button className="text-white   sm:block hidden ml-auto sm:mr-4  bg-red-600 rounded  sm:p-1  hover:bg-red-600/80 " onClick={toggle} >Gpt-Search</button>}
+       <button className="text-white   bg-red-600 sm:block hidden rounded  sm:p-1  hover:bg-red-600/80" onClick={handleClick}>Signout</button>
+       <button className="sm:hidden text-white  pb-3 ">&equiv;</button>
 
     </div>)
 }

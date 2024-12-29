@@ -1,9 +1,11 @@
-import React, { useRef } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 import Listitem from './Listitem'
 
 const List = ({name,movieList}) => {
+  // const widthcontainer=useRef(0)
   
   const scrollContainer = useRef(null)
+
   const scrollAmount=166;
   let flag=true;
   function scroll(sign){
@@ -39,19 +41,21 @@ const List = ({name,movieList}) => {
   const handlescrollright= ()=>{
     scroll(+1)
   }
+  useLayoutEffect(()=>{console.log(scrollContainer)},[])
   return (
     <div>
-    <h1 className='text-xl text-white font-bold mb-2'>{name}</h1>
+    <h1 className='text-xl text-white font-bold mb-3 sm:mb-2'>{name}</h1>
     <div className='relative'>
      <button className='absolute left-0 z-10 top-1/2 -translate-y-1/2 text-white text-8xl h-full pb-5 leading-[18px]' onClick={handlescrollleft}>&#8249;</button>
-     <div className='grid grid-flow-col gap-4 auto-cols-[150px] overflow-x-hidden overflow-y-hidden ' ref={scrollContainer}>
+     <div  className='grid grid-flow-col p-14 sm:p-0 sm:gap-4 auto-cols-[100%] sm:auto-cols-[150px] overflow-x-hidden overflow-y-hidden ' ref={scrollContainer}>
      {movieList.map((data)=><Listitem key ={data.id} posterPath = {data.poster_path}/>)}
      </div>
+     
     <button className='absolute  right-0 top-1/2 -translate-y-1/2  h-full text-white text-8xl pb-5  leading-[18px]'  onClick={handlescrollright}>&#8250;</button>
     </div>
     
     </div>
   )
-}
+} 
 
 export default List

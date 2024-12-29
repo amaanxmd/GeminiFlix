@@ -3,11 +3,11 @@ import { geminikey } from "./constant";
 
 
 const genAI  = new GoogleGenerativeAI(geminikey)
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
 
 export  async function gemini(query,dispatch,setquery){
   
-   
+  try{ 
 const prompt = `query =${query};
 
  Return a list of movies that match the query . Provide the maximum number of relevant results, using this JSON format:
@@ -39,6 +39,9 @@ dispatch(setquery(result.response.text()))
 // dispatch(togglegpt())
 // dispatch(removefetchedquery())
 // dispatch(updatestartandend({start:0,end:10}))
+  }catch(err){
+      console.log(err)
+  }
 
 
 

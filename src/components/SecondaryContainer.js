@@ -14,8 +14,8 @@ export const SecondaryContainer = ({movie})=>{
     
 
 
-return (<div className='px-6 -mt-32 bg-transparent z-10 relative  '>
- <div className="flex flex-col h-[162vh] justify-between">
+return (<div className='px-16 sm:px-6 sm:-mt-32 bg-transparent z-10 relative  '>
+ <div className="flex flex-col h-[162vh] justify-between gap-4 sm:gap-0">
     <List name= "Now Playing" movieList= {movie} />
     { trendingMovies && <List name= "Trending" movieList= {trendingMovies} />}
    {topRatedMovies && <List name= "Top Rated" movieList = {topRatedMovies}/>}

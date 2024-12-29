@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux"
 import { useGetVideos } from "../customHooks/useGetVideos"
+import { url } from "../utils/constant"
 import React from "react"
 
 export const VideoContainer  = ({movie})=>{
@@ -11,9 +12,9 @@ export const VideoContainer  = ({movie})=>{
     }
     
     
-    return (<div>
+    return (<div><div className="sm:block hidden">
     
-   <div className="absolute top-64 z-10 w-1/3 left-12 flex flex-col items-start   " > 
+   <div className=" absolute sm:top-[50vh] sm:-translate-y-1/2 z-10 w-[383.46px] left-12 flex flex-col items-start   " > 
     <h1 className="text-red-600 text-5xl font-bold mb-4">{movie.title}</h1>
     <p className="text-white mb-4">{movie.overview}</p>
     <div className="">
@@ -30,5 +31,10 @@ export const VideoContainer  = ({movie})=>{
         { video &&<iframe className="w-full h-full "  src={"https://www.youtube.com/embed/"+video[0].key+"?&autoplay=1&mute=1&loop=1&&playlist="+video[0].key} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>}
         {video && <div className="w-full h-full"></div>}
         </div>
+
+</div>
+<div>
+   {<img className='rounded sm:hidden hover:scale-125  transition-transform duration-300' src={url+movie.poster_path}/>}
+</div>
 </div>)
 }

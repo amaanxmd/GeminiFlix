@@ -11,7 +11,7 @@ export const useGetNowPlayingMovies=()=>{
       async function getMovies(){
         const data = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1',options)
         const finaldata = await data.json()
-        console.log(finaldata.results)
+      //   console.log(finaldata.results)
         dispatch(addnowplayingMovies(finaldata.results))
         
      }
