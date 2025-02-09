@@ -1,22 +1,11 @@
 import React from 'react'
 
-// const Shimmer = () => {
+export const  ShimmerForHomeCard = () => {
     
-//   return (
-//     <div className='text-white flex  gap-x-2 h-[150px] overflow-hidden bg-black hover:shadow-md hover:shadow-black rounded '>
-//    <div className=''><div className='w-[100px] h-[150px] bg-gray-700 rounded flex  items-center text-center'>image not found </div></div>   
-//       <div className='overflow-auto'>
-//    <h1 className='text-red-600 font-bold text-lg mb-2'>title</h1>
-//    <p>overview not available</p>
-//     </div>
-  
-   
-//     </div>
-  
-//   )
-// }
+  return (<div className="h-48 w-full shimmer   rounded-md"></div>)
+}
 
-// export default Shimmer
+
 
 const ShimmerCard = () => {
   return (

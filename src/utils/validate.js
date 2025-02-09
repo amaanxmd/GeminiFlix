@@ -1,4 +1,4 @@
-export const validate = (email, password)=>{
+export const validate = (email, password,passwordField)=>{
 
 const emailresult = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)
 
@@ -8,7 +8,7 @@ if(!emailresult){
 
          }
 }
-if(password){
+if(passwordField){
 const passwordresult = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/.test(password)
 if(!passwordresult){
     return {errortype:"password",

@@ -5,13 +5,15 @@ const gptslice = createSlice({
     initialState:{
       toggle:false,
       startandend:{start:0,end:10},
-      query:null
+      query:null,
+      
 
     },
     reducers:{
         togglegpt:(state)=>{
               state.toggle= !state.toggle
         },
+       
         updatestartandend:(state,action)=>{
           state.startandend.start=action.payload.start;
           state.startandend.end =action.payload.end;
@@ -26,5 +28,5 @@ const gptslice = createSlice({
     }
 })
 
-export const{togglegpt,updatestartandend,setquery,deletequery}= gptslice.actions
+export const{togglegpt,updatestartandend,setquery}= gptslice.actions
 export default gptslice.reducer

@@ -10,9 +10,12 @@ export const useGetVideos = (movieid)=>{
 
     async function getVideos(){
 
-       const data = await fetch('https://api.themoviedb.org/3/movie/'+movieid+'/videos?language=en-US',options)
+       try{const data = await fetch('https://api.themoviedb.org/3/movie/'+movieid+'/videos?language=en-US',options)
        const finaldata  = await data.json()
-       dispatch (addVideos(finaldata.results))
+       dispatch (addVideos(finaldata.results))}
+       catch(e){
+        console.log(e)
+       }
     }
 
     useEffect(()=>{getVideos()},[movieid])

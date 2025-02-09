@@ -5,7 +5,7 @@ import { geminikey } from "./constant";
 const genAI  = new GoogleGenerativeAI(geminikey)
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
 
-export  async function gemini(query,dispatch,setquery){
+export  async function gemini(query,dispatch,setquery,setloadingMessage){
   
   try{ 
 const prompt = `query =${query};
@@ -33,14 +33,23 @@ Do not return any text
 Do not Include \`\`\`json\`\`\``
 
 const result = await model.generateContent(prompt);
+// const json = JSON.parse(result.response.text())
+sessionStorage.removeItem('results')
 sessionStorage.setItem('results',result.response.text())
-dispatch(setquery(result.response.text()))
+// console.log(json)
+dispatch((setquery(JSON.parse(result.response.text()))))
+setloadingMessage("Searching In DataBase")
+
+// console.log(result.response.text())
 // navigate('/searchresults')
 // dispatch(togglegpt())
 // dispatch(removefetchedquery())
 // dispatch(updatestartandend({start:0,end:10}))
   }catch(err){
-      console.log(err)
+      sessionStorage.removeItem('results')
+      
+      dispatch(setquery(null))
+      setloadingMessage("Connection With Gemini Failed")
   }
 
 

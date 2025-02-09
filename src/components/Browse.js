@@ -1,5 +1,5 @@
 import { onAuthStateChanged } from "firebase/auth";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useGetNowPlayingMovies } from "../customHooks/useGetNowPlayingMovies";
@@ -22,7 +22,7 @@ const Browse =()=>{
     const navigate = useNavigate()
     
     useEffect(()=>{
-        onAuthStateChanged(auth, (user) => {
+       const unsubscribe = onAuthStateChanged(auth, (user) => {
         if (user) {
           
           const uid = user.uid;
@@ -38,14 +38,14 @@ const Browse =()=>{
         }
       });
     
-     
+     return unsubscribe;
     },[])
 
     function handleclick(){
         dispatch(togglegpt())
     }
 
-    if (!movies) return;
+    // if (!movies) return;
    
 
     return (<div className="bg-neutral-800 relative ">

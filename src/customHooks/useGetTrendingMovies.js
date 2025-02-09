@@ -8,9 +8,12 @@ const useGetTrendingMovies = () => {
     const trendingMovies = useSelector((store)=>store.movieReducer.trendingmovies)
     const dispatch= useDispatch()
     async function getTrendingMovies(){
-       const data = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',options);
+       try{const data = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',options);
        const finaldata = await data.json()
-       dispatch(addTrendingMovies(finaldata.results))
+       dispatch(addTrendingMovies(finaldata.results))}
+       catch(e){
+        console.log(e)
+       }
     }
     useEffect(()=>{!trendingMovies && getTrendingMovies()},[])
   

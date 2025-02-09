@@ -16,7 +16,7 @@ const LoginForm = ()=>{
     const [error, seterror]=useState(null)
     
     const handleClick = ()=>{
-    const result =validate(email.current.value, passwordfield?password.current.value:undefined)
+    const result =validate(email.current.value, password.current.value,passwordfield)
     seterror(result)
     
     
@@ -31,18 +31,20 @@ const LoginForm = ()=>{
         signIn(email,password,seterror,navigate)
         
     }
-    if(result==null && passwordfield==false)
-       signInWithoutPassword(email)
+    // if(result==null && passwordfield==false)
+    //    signInWithoutPassword(email)
     }
    
-return (<form onSubmit={(e)=>e.preventDefault()} className="absolute top-0 sm:top-24 left-1/2 -translate-x-1/2 w-full  sm:max-w-max bg-black/70 sm:w-[450px] h-full sm:h-[607px] px-10 sm:px-[68px] py-36 pb-0 sm:py-[48px] sm:pb-0 rounded-[4px]">
+return (<form onSubmit={(e)=>e.preventDefault()} className="absolute top-0 sm:top-24 left-1/2 -translate-x-1/2 w-full h-screen  sm:max-w-max bg-black/70 sm:w-[450px] sm:h-full px-4 sm:px-[68px] py-36 pb-0 sm:py-[48px] sm:pb-0 rounded-[4px]">
+<h1 className="text-sm text text-white absolute top-20 animate-bounce sm:top-2 px-6 z-50 sm:px-8 left-0 text-center">Due to the api used in this project not being available in india, users are requested to use a VPN </h1>
 <h1 className="text-[32px]  font-bold text-white mb-[28px]">{signedIn ? "Sign In" : "Sign Up"}</h1>
 
 <div className="flex flex-col justify-between h-[315.2px]">
     <input ref={email} className="h-[56px] bg-inherit border border-gray-500/80 rounded px-[16px] caret-white text-white" type="email" placeholder="Email or mobile number"/>
     {(error && error.errortype === "email") && <p className="text-red-700 font-light text-sm">{error.errorMessage}</p>}
     {passwordfield && <input ref={password} className="h-[56px] bg-inherit border border-gray-500/80 rounded px-[16px] caret-white text-white" type="password" placeholder="Password"/>}
-    {(error && error.errortype === "password") && <p className="text-red-700 font-light text-sm">{error.errorMessage}</p>}
+    {error && <p className="text-red-700 font-light text-sm">{error.errortype === "password"?error.errorMessage:error.errormessage!=="email"&&error.errorMessage}</p>}
+    {/* {(error && error.errortype === "password") && <p className="text-red-700 font-light text-sm">{error.errorMessage}</p>} */}
     
     {!passwordfield && <p className="text-white text-center text-xs text-gray-400 font-semibold">Message and data rates may apply</p>}
     <button className="bg-red-600 h-[40px] font-semibold text-white rounded" onClick={handleClick}>{passwordfield ? (signedIn ? "Sign In" : "Sign Up") : "Send sign-in code"}</button>

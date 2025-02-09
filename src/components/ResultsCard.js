@@ -8,7 +8,7 @@ const ResultsCard = ({moviedata}) => {
    <div className=''>{ moviedata.poster_path===null?<div className='w-[100px] h-[150px] bg-gray-700 rounded flex  items-center text-center'>image not found </div>:<div className=' w-[100px]'><img className='w-full h-full rounded' src={url+moviedata.poster_path}/> </div>}</div>   
       <div className='overflow-auto scrollbar-none'>
    <h1 className='text-red-600 font-bold text-lg mb-2'>{moviedata.title}</h1>
-   {moviedata.overview===''?<p>overview not available</p>:<p className='text-sm pb-2'>{moviedata.overview}</p> }
+   {moviedata.overview===''?<p>overview not available</p>:<p className='text-sm pb-2 pr-1'>{moviedata.overview}</p> }
     </div>
   
    
