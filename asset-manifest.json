@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/GeminiFlix/static/css/main.aba5695e.css",
-    "main.js": "/GeminiFlix/static/js/main.dd3c0eee.js",
+    "main.js": "/GeminiFlix/static/js/main.527c2733.js",
     "static/js/453.67699da7.chunk.js": "/GeminiFlix/static/js/453.67699da7.chunk.js",
     "index.html": "/GeminiFlix/index.html",
     "main.aba5695e.css.map": "/GeminiFlix/static/css/main.aba5695e.css.map",
-    "main.dd3c0eee.js.map": "/GeminiFlix/static/js/main.dd3c0eee.js.map",
+    "main.527c2733.js.map": "/GeminiFlix/static/js/main.527c2733.js.map",
     "453.67699da7.chunk.js.map": "/GeminiFlix/static/js/453.67699da7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.aba5695e.css",
-    "static/js/main.dd3c0eee.js"
+    "static/js/main.527c2733.js"
   ]
 }
