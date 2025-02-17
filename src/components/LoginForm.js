@@ -18,9 +18,9 @@ const LoginForm = ()=>{
     const [linkSentSuccessfully,setlinksentSuccessfully]=useState("Message and data rates may apply")
     const [showToUseVpn,setshowToUseVpn]=useState(true)
     
-    const hash = window.location.hash; // Get the full hash fragment
-    const queryString = hash.includes("?") ? hash.split("?")[1] : ""; // Extract query part
-    const urlParams = new URLSearchParams(queryString);
+    // const hash = window.location.hash; // Get the full hash fragment
+    // const queryString = hash.includes("?") ? hash.split("?")[1] : ""; // Extract query part
+    const urlParams = new URLSearchParams(window.location.search);
     const paramsObject = Object.fromEntries(urlParams.entries());
     const mode = paramsObject.mode
   
