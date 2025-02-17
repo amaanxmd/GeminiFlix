@@ -14,7 +14,7 @@ const Body =()=>{
     const dispatch = useDispatch()
    
 
-    const approuter = createHashRouter([
+    const approuter = createBrowserRouter([
 
      {path:"/",
       element:<LoginPage/>
