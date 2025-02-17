@@ -1,5 +1,5 @@
-{"homepage":"https://amaanxmd.github.io/GeminiFlix",
-  "name": "netflix-gpt",
+{
+  "name": "gemini-flix",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -50,3 +50,5 @@
     "tailwindcss": "^3.4.10"
   }
 }
+
+
