@@ -7,6 +7,7 @@ import { togglegpt,updatestartandend, } from '../utils/gptslice';
 import Shimmer from './Shimmer';
 import useGetUpcomingMovies from '../customHooks/useGetUpcomingMovies';
 import SideStickyPageContent from './SideStickyPageContent';
+import Error from './Error';
 
 
 
@@ -32,11 +33,12 @@ const SearchResults = () => {
     // useEffect(()=>{if(resultdivHeight.current)setHeight(resultdivHeight.current.offsetHeight)},[startandend])
     
     useSearchMovies(queryobj||json)
-   
+    
     
     const moviedata = useSelector((store) => store.fetchedMovieReducer.list);
     const disablePrevious = startandend.start === 0;
     const disableNext = moviedata && startandend.end >= moviedata.length;
+    
     
         
     function handleclick(){
@@ -45,15 +47,19 @@ const SearchResults = () => {
     
     
     return (
-        <div className='px-2 sm:px-12 lg:px-44 pt-14 relative lg:flex lg:gap-x-4 '>
+        <div className='px-2 sm:px-12 lg:px-44 pt-14 relative lg:flex lg:gap-x-4  '>
             {toggle && <div className="w-full h-full top-0 left-0 absolute z-30" onClick={handleclick}></div>}
             {toggle&& <GptSearch/>} 
-         <div className='lg:w-2/3' >
-        {(queryobj||json)? <div>
-         {moviedata?<div  className='flex flex-col gap-4 mt-2'>
-            {moviedata.length?moviedata.slice(startandend.start,startandend.end).map((data)=><ResultsCard key={data.id} moviedata={data}/>):<img src='https://cdn.dribbble.com/userupload/2905354/file/original-92212c04a044acd88c69bedc56b3dda2.png?resize=1200x900'/>}
-            </div>:<div className='flex flex-col gap-4'>{arrforshimmer.map((_,index)=><Shimmer key={index}/>)}</div>}
-            </div>:<div><img className='w-full h-screen' src='https://cdn.dribbble.com/userupload/2905354/file/original-92212c04a044acd88c69bedc56b3dda2.png?resize=1200x900'/></div>}
+         <div className='lg:w-2/3 mt-3' >
+        {(queryobj?.movieList?.length||json?.movieList.length)? <div className='flex flex-col gap-y-2'>
+           
+            {moviedata?.length>0?moviedata.slice(startandend.start,startandend.end).map((data)=><ResultsCard key={data.id} moviedata={data}/>):<div className='flex flex-col gap-4'>{arrforshimmer.map((_,index)=><Shimmer key={index}/>)}</div>}
+        
+            </div>:<div><Error/></div>}
+
+            {/* {moviedata?<div  className='flex flex-col gap-4 mt-2'>
+            {moviedata.length?moviedata.slice(startandend.start,startandend.end).map((data)=><ResultsCard key={data.id} moviedata={data}/>):<Error/>}
+            </div>:<div className='flex flex-col gap-4'>{arrforshimmer.map((_,index)=><Shimmer key={index}/>)}</div>} */}
             
             
            { <div className='flex  justify-center gap-3 mt-2 lg:absolute lg:left-1/2 lg:-translate-x-1/2 '>
@@ -61,7 +67,7 @@ const SearchResults = () => {
           {moviedata&&moviedata.length!==0&& <button disabled={disableNext} className={`text-white rounded ${disableNext ? 'bg-gray-400 cursor-not-allowed hover:bg-gray-400/80' : 'bg-red-600  hover:bg-red-600/80'} p-1`} onClick={()=>{if(moviedata && moviedata.length>startandend.end){dispatch(updatestartandend({start:startandend.end,end:startandend.end+10}))};if(moviedata  )setrandomvaluesforsticky(Math.floor(Math.random()*16))}}>Next</button>}
            </div>}
            </div>
-           <div  className='text-white mt-2  w-1/3 rounded lg:block hidden '>
+           <div  className='text-white   w-1/3 rounded lg:block hidden mt-3 '>
             
            <div className='w-full  sticky top-14 rounded  bg-black p-2 text-red-600 font-bold text-xl '>upcoming Movies<div className='flex mt-4 flex-col justify-between   gap-2'>{ upcomingMovies? upcomingMovies.slice(randomvaluesforsticky,randomvaluesforsticky+5).map((data, index)=><SideStickyPageContent key={index} upcoming ={data}/>):<Shimmer/>}</div></div>
            </div>

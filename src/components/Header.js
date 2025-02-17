@@ -1,6 +1,30 @@
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import Logo from "./Logo";
 const Header =()=>{
-
+    const navigate =useNavigate()
+    useEffect(()=>{
+        onAuthStateChanged(auth, (user) => {
+        if (user) {
+          
+          
+          navigate('/browse')
+        
+    
+    
+          
+        } 
+        // else {
+          
+        //   navigate("/")
+          
+        // }
+      });
+    
+     
+    },[])
     return (<div>
           <Logo className = {"sm:absolute sm:h-10  sm:w-[148px] sm:top-6 sm:left-44 sm:z-10 absolute h-10 w-[148px] top-6 left-1/2 -translate-x-1/2 z-10"}/>
           <div className=" relative h-screen">

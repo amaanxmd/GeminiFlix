@@ -6,9 +6,10 @@ import { onAuthStateChanged, } from "firebase/auth"
 import { auth } from "../utils/firebase"
 import { useNavigate } from "react-router-dom"
 import { signOutfromAccount } from "../utils/firebase"
+import { unstable_batchedUpdates } from "react-dom"
 
 export const BrowseHeader =()=>{
-  const navigate = useNavigate()
+const navigate = useNavigate()
 const toggleflag = useSelector((store)=>store.gptReducer.toggle)
 const [navbarColor, setNavbarColor] = useState('bg-gradient-to-b from-black/80'); // Initial color
 const [scrollTimeout, setScrollTimeout] = useState(null);
@@ -45,7 +46,7 @@ useEffect(() => {
 
 
   useEffect(()=>{
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe= onAuthStateChanged(auth, (user) => {
     if (user) {
       
       const uid = user.uid;
@@ -60,7 +61,7 @@ useEffect(() => {
       
     }
   });
-
+return unsubscribe
  
 },[])
 function toggle(){

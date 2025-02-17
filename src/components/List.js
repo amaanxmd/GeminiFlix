@@ -47,9 +47,9 @@ const handleScroll=(e)=>{
   return (
     <div className=''>
     <h1 className={`md:text-lg ${name==="Now Playing"?"mt-4":""} text-white font-bold mb-3 sm:mb-2 text-md lg:text-xl `}>{name}</h1>
-    <div className='relative  '>
+    <div className='relative   '>
      <button className='absolute left-0 z-10 top-1/2 -translate-y-1/2 text-white text-8xl h-full pb-5 leading-[18px]' onClick={handleScroll}>&#8249;</button>
-     <div  className={` grid grid-flow-col gap-x-2  p-0 sm:gap-2 lg:gap-4 auto-cols-[calc((100%-16px)/3)] sm:auto-cols-[calc((100%-24px)/4)] md:auto-cols-[calc((100%-40px)/6)] lg:auto-cols-[calc((100%-112px)/8)] w-full  sm:min-h-28  min-h-16  overflow-x-scroll scrollbar-none snap-x `} ref={scrollContainer}>
+     <div  className={`   grid grid-flow-col gap-x-2  p-0 sm:gap-2 lg:gap-4 auto-cols-[calc((100%-16px)/3)] sm:auto-cols-[calc((100%-24px)/4)] md:auto-cols-[calc((100%-40px)/6)] lg:auto-cols-[calc((100%-112px)/8)] w-full  sm:min-h-28  min-h-16  overflow-x-scroll  scrollbar-none snap-x `} ref={scrollContainer}>
      {!movieList?.length?arr.map((_,index)=><ShimmerForHomeCard key={index}/>):movieList.map((data)=><Listitem key ={data.id} posterPath = {data.poster_path}/>)}
      
      </div>

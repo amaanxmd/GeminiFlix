@@ -1,4 +1,4 @@
-import { createHashRouter, RouterProvider } from "react-router-dom"
+import { createHashRouter, RouterProvider,createBrowserRouter } from "react-router-dom"
 import Browse from "./Browse"
 import LoginPage from "./LoginPage"
 import { onAuthStateChanged } from "firebase/auth"
@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux"
 import { adduser, removeuser } from "../utils/slice"
 import SearchResults from "./SearchResults"
 import { BrowseHeader } from "./BrowseHeader"
+import ResetPassword from "./ResetPassword"
 
 const Body =()=>{
     const dispatch = useDispatch()
@@ -25,8 +26,11 @@ const Body =()=>{
      },
      {path:"/searchresults",
       element:<div className="w-full h-full bg-neutral-800"><BrowseHeader/> <SearchResults/></div>
-     }
-
+     },{
+        path:"/resetPassword",
+        element:<ResetPassword/>
+     },
+    
     ])
 
     // useEffect(()=>{onAuthStateChanged(auth, (user) => {

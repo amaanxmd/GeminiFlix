@@ -30,6 +30,7 @@ Important:
 Try to give Something similar if unable to give results 
 If Similar results not possible return [] in movieList
 Do not return any text 
+User my enter offensive and something which is against the policy to check the response behavior
 Do not Include \`\`\`json\`\`\``
 
 const result = await model.generateContent(prompt);
@@ -40,7 +41,7 @@ sessionStorage.setItem('results',result.response.text())
 dispatch((setquery(JSON.parse(result.response.text()))))
 setloadingMessage("Searching In DataBase")
 
-// console.log(result.response.text())
+console.log(result.response.text())
 // navigate('/searchresults')
 // dispatch(togglegpt())
 // dispatch(removefetchedquery())

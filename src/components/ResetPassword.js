@@ -7,17 +7,14 @@ import { useNavigate ,useLocation } from 'react-router-dom'
 const ResetPassword = () => {
     const password =useRef()
     const navigate =useNavigate()
-    const hash = window.location.hash; // Get the full hash fragment
-    const queryString = hash.includes("?") ? hash.split("?")[1] : ""; // Extract query part
-    const urlParams = new URLSearchParams(queryString);
-    const oobCode = urlParams.get("oobCode");
-
-
+    const location= useLocation()
+    const {oobCode}=location.state.params
     const [showMessage,setshowMessage]=useState(false)
     const [error,seterror]=useState(null)
-    
-  
+   
+    console.log(location)
     useEffect(()=>{if(!oobCode){navigate("/")}},[])
+
     function handlePasswordChange(){
     const passwordresult = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/.test(password.current.value)
     if(passwordresult){

@@ -6,11 +6,12 @@ import { addfetchedquery } from '../utils/fetchedmoviefromqueryslice'
 
 const useSearchMovies = (movielist) => {
   const dispatch =useDispatch()
-// console.log(movielist)
+
    async function searchMovies(){
     
     try{
-    if (!movielist)return
+     
+    if (!movielist?.movieList)return
    
    const moviedata= await Promise.all( movielist.movieList.map(async(data)=>{ const movie = await fetch(`https://api.themoviedb.org/3/search/movie?query=${data.title}&include_adult=true&language=en-US&page=1`,
                 options);
@@ -35,7 +36,7 @@ const useSearchMovies = (movielist) => {
 }
   }
   
- useEffect(()=>{searchMovies()},[movielist])
+ useEffect(()=>{searchMovies()},[movielist?.movieList?.length])
 
 }
 
