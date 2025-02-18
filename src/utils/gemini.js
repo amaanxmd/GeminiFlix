@@ -48,6 +48,7 @@ console.log(result.response.text())
 // dispatch(updatestartandend({start:0,end:10}))
   }catch(err){
       sessionStorage.removeItem('results')
+      console.log(err)
       
       dispatch(setquery(null))
 
