@@ -50,6 +50,7 @@ console.log(result.response.text())
       sessionStorage.removeItem('results')
       
       dispatch(setquery(null))
+      
       setloadingMessage("Connection With Gemini Failed")
   }
 

@@ -57,7 +57,7 @@ const SearchResults = () => {
             {/* {moviedata?moviedata?.length>0?moviedata.slice(startandend.start,startandend.end).map((data)=><ResultsCard key={data.id} moviedata={data}/>):<div className='flex flex-col gap-4'>{arrforshimmer.map((_,index)=><Shimmer key={index}/>)}</div>:<Error/>} */}
             {!moviedata?<div className='flex flex-col gap-4'>{arrforshimmer.map((_,index)=><Shimmer key={index}/>)}</div>:moviedata.length>0?moviedata.slice(startandend.start,startandend.end).map((data)=><ResultsCard key={data.id} moviedata={data}/>):<Error/>}
         
-            </div>:<div><Error/></div>}
+            </div>:<div><Error type={"Gemini"}/></div>}
 
             {/* {moviedata?<div  className='flex flex-col gap-4 mt-2'>
             {moviedata.length?moviedata.slice(startandend.start,startandend.end).map((data)=><ResultsCard key={data.id} moviedata={data}/>):<Error/>}
