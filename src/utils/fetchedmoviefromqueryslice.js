@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const fetchedmoviefromqueryslice = createSlice({
     name:"fetchedfromquery",
-    initialState:{list:null},
+    initialState:{list:[]},
     reducers:{
         addfetchedquery :(state,action)=>{
             state.list=action.payload
