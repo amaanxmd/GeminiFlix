@@ -29,7 +29,7 @@ const GptSearchBar = () => {
     
      dispatch(togglegpt())
      
-    //  dispatch(removefetchedquery())
+     dispatch(removefetchedquery())
      dispatch(updatestartandend({start:0,end:10}))
     //  dispatch(deletequery())
     //  sessionStorage.removeItem('results');

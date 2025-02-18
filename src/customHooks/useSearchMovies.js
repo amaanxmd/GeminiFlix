@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { options } from '../utils/constant'
 import { useDispatch } from 'react-redux'
-import { addfetchedquery,removefetchedquery } from '../utils/fetchedmoviefromqueryslice'
+import { addfetchedquery,handleErrorFromTmdb } from '../utils/fetchedmoviefromqueryslice'
 
 
 const useSearchMovies = (movielist) => {
@@ -32,7 +32,7 @@ const useSearchMovies = (movielist) => {
       dispatch(addfetchedquery(updatedMovieData))
           
 } catch(e){
-  dispatch(removefetchedquery())
+  dispatch(handleErrorFromTmdb())
   console.log(e)
 }
   }
