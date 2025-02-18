@@ -3,7 +3,7 @@ import { geminikey } from "./constant";
 
 
 const genAI  = new GoogleGenerativeAI(geminikey)
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-pro-experimental-02-05" });
+const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 export  async function gemini(query,dispatch,setquery,setloadingMessage){
   
