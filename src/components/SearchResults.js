@@ -52,7 +52,6 @@ const SearchResults = () => {
             {toggle&& <GptSearch/>} 
          <div className='lg:w-2/3 mt-3' >
         {(queryobj?.movieList?.length||json?.movieList.length)? <div className='flex flex-col gap-y-2'>
-           
             {moviedata?.length>0?moviedata.slice(startandend.start,startandend.end).map((data)=><ResultsCard key={data.id} moviedata={data}/>):<div className='flex flex-col gap-4'>{arrforshimmer.map((_,index)=><Shimmer key={index}/>)}</div>}
         
             </div>:<div><Error/></div>}

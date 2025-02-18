@@ -41,7 +41,7 @@ sessionStorage.setItem('results',result.response.text())
 dispatch((setquery(JSON.parse(result.response.text()))))
 setloadingMessage("Searching In DataBase")
 
-console.log(result.response.text())
+// console.log(result.response.text())
 // navigate('/searchresults')
 // dispatch(togglegpt())
 // dispatch(removefetchedquery())
