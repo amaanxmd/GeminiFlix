@@ -16,6 +16,7 @@ const Error = ({type}) => {
         <div className='flex justify-center flex-col items-center gap-y-1'>
         <h1 className='text-white text-4xl'>404</h1>
         <h1 className='text-white text-4xl text-center'>Page Not Found</h1>
+        {console.log(type)}
         <p className='text-white text-lg text-center mt-4'>{type?"Couldn't connect to Gemini please try again":"Couldn't Found In Our Database"}</p>
 
         </div>

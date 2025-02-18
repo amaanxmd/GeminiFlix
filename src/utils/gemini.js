@@ -3,7 +3,7 @@ import { geminikey } from "./constant";
 
 
 const genAI  = new GoogleGenerativeAI(geminikey)
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 export  async function gemini(query,dispatch,setquery,setloadingMessage){
   
@@ -50,7 +50,7 @@ console.log(result.response.text())
       sessionStorage.removeItem('results')
       
       dispatch(setquery(null))
-      
+
       setloadingMessage("Connection With Gemini Failed")
   }
 
