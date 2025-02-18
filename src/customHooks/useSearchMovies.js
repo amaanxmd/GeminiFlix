@@ -32,6 +32,7 @@ const useSearchMovies = (movielist) => {
       dispatch(addfetchedquery(updatedMovieData))
           
 } catch(e){
+  
   console.log(e)
 }
   }
