@@ -58,7 +58,7 @@ const LoginForm = ()=>{
    
 return (<form onSubmit={(e)=>e.preventDefault()} className="absolute top-0 sm:top-24 left-1/2 -translate-x-1/2 w-full h-screen  sm:max-w-max bg-black/70 sm:w-[450px] sm:h-full px-4 sm:px-[68px] py-36 pb-0 sm:py-[48px] sm:pb-0 rounded-[4px]">
     <div className={`${showToUseVpn?"noclip top-16 left-0 sm:top-0":"clip top-7 left-[calc((100%/2)-110px)] sm:top-2  animate-bounce"} transition-all duration-200 absolute   sm:left-0 bg-red-600 `}>
-    <h1 className={`${showToUseVpn?"text-white  text-sm   pl-4 pr-6 sm:px-8":"opacity-0 text-sm text-white pl-4 pr-6 sm:px-8"}`}>Due to the api used in this project not being available in india, users are requested to use a VPN </h1>
+    <h1 className={`${showToUseVpn?"text-white  text-sm py-1  pl-4 pr-6 sm:px-8":"opacity-0 text-sm text-white pl-4 pr-6 sm:px-8"}`}>Due to the api used in this project not being available in india, users are requested to use a VPN </h1>
       <p onClick={()=>setshowToUseVpn(false)} className="absolute top-0 right-2 text-white leading-tight">{'\u2715'}</p>
       <p className={`${showToUseVpn?"hidden":"absolute top-5 -translate-y-1/2 -translate-x-1/2 left-5 text-white after:h-6 after:w-6  after:absolute after:left-0 after:top-0 after:-translate-x-1/2   "}  `} onClick={()=>setshowToUseVpn(true)}> i</p>
     </div>

@@ -36,6 +36,7 @@ Do not Include \`\`\`json\`\`\``
 const result = await model.generateContent(prompt);
 // const json = JSON.parse(result.response.text())
 sessionStorage.removeItem('results')
+sessionStorage.removeItem("errorType")
 sessionStorage.setItem('results',result.response.text())
 // console.log(json)
 dispatch((setquery(JSON.parse(result.response.text()))))
@@ -48,6 +49,7 @@ console.log(result.response.text())
 // dispatch(updatestartandend({start:0,end:10}))
   }catch(err){
       sessionStorage.removeItem('results')
+      sessionStorage.setItem("errorType","Gemini")
       console.log(err)
       
       dispatch(setquery(null))

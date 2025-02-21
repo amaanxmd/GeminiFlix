@@ -15,6 +15,7 @@ import Error from './Error';
 const SearchResults = () => {
     
     const results =sessionStorage.getItem('results')
+    const errorType =sessionStorage.getItem("errorType")
     const json = JSON.parse(results)
     useGetUpcomingMovies()
     const [randomvaluesforsticky,setrandomvaluesforsticky] = useState(Math.floor(Math.random()*16))
@@ -55,9 +56,9 @@ const SearchResults = () => {
          <div className='lg:w-2/3 mt-3' >
         {(queryobj?.movieList?.length||json?.movieList.length)? <div className='flex flex-col gap-y-2'>
             {/* {moviedata?moviedata?.length>0?moviedata.slice(startandend.start,startandend.end).map((data)=><ResultsCard key={data.id} moviedata={data}/>):<div className='flex flex-col gap-4'>{arrforshimmer.map((_,index)=><Shimmer key={index}/>)}</div>:<Error/>} */}
-            {!moviedata?<div className='flex flex-col gap-4'>{arrforshimmer.map((_,index)=><Shimmer key={index}/>)}</div>:moviedata.length>0?moviedata.slice(startandend.start,startandend.end).map((data)=><ResultsCard key={data.id} moviedata={data}/>):<Error/>}
+            {!moviedata?<div className='flex flex-col gap-4'>{arrforshimmer.map((_,index)=><Shimmer key={index}/>)}</div>:moviedata.length>0?moviedata.slice(startandend.start,startandend.end).map((data)=><ResultsCard key={data.id} moviedata={data}/>):<Error type={""}/>}
         
-            </div>:<div><Error type={"Gemini"}/></div>}
+            </div>:<div><Error type={errorType||""}/></div>}
 
             {/* {moviedata?<div  className='flex flex-col gap-4 mt-2'>
             {moviedata.length?moviedata.slice(startandend.start,startandend.end).map((data)=><ResultsCard key={data.id} moviedata={data}/>):<Error/>}
