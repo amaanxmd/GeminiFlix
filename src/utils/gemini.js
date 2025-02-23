@@ -42,7 +42,7 @@ sessionStorage.setItem('results',result.response.text())
 dispatch((setquery(JSON.parse(result.response.text()))))
 setloadingMessage("Searching In DataBase")
 
-console.log(result.response.text())
+// console.log(result.response.text())
 // navigate('/searchresults')
 // dispatch(togglegpt())
 // dispatch(removefetchedquery())
@@ -50,7 +50,7 @@ console.log(result.response.text())
   }catch(err){
       sessionStorage.removeItem('results')
       sessionStorage.setItem("errorType","Gemini")
-      console.log(err)
+      // console.error(err)
       
       dispatch(setquery(null))
 
