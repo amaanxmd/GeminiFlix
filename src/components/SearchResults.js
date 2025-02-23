@@ -46,9 +46,7 @@ const SearchResults = () => {
      dispatch(togglegpt())
     }
     
-    console.log(json)
-    console.log(queryobj)
-    console.log(moviedata)
+    
     return (
         <div className='px-2 sm:px-12 lg:px-44 pt-14 relative lg:flex lg:gap-x-4  '>
             {toggle && <div className="w-full h-full top-0 left-0 absolute z-30" onClick={handleclick}></div>}
